@@ -32,6 +32,13 @@
 		D754C0D62620A761005FB0BD /* AllHeroesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C0D52620A761005FB0BD /* AllHeroesRepository.swift */; };
 		D754C0E02620A7BE005FB0BD /* FetchHeroesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C0DF2620A7BE005FB0BD /* FetchHeroesUseCase.swift */; };
 		D754C0E72620A9E8005FB0BD /* HeroListAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C0E62620A9E8005FB0BD /* HeroListAssembler.swift */; };
+		D754C0FD2620B437005FB0BD /* HeroDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C0FC2620B437005FB0BD /* HeroDetailPresenter.swift */; };
+		D754C1042620C05E005FB0BD /* InMemoryHeroDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C1032620C05E005FB0BD /* InMemoryHeroDetailRepository.swift */; };
+		D754C10F2620C0DB005FB0BD /* HeroDetailAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C10E2620C0DB005FB0BD /* HeroDetailAssembler.swift */; };
+		D754C1162620C1D6005FB0BD /* HeroDetailOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C1152620C1D6005FB0BD /* HeroDetailOpener.swift */; };
+		D754C11D2620C230005FB0BD /* WireframeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C11C2620C230005FB0BD /* WireframeProtocols.swift */; };
+		D754C1282620C309005FB0BD /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C1272620C309005FB0BD /* RootWireframe.swift */; };
+		D754C1332620C526005FB0BD /* HeroListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C1322620C526005FB0BD /* HeroListRouter.swift */; };
 		F7F2298908F846D80A0D0F37 /* Pods_MarvelHeroes_MarvelHeroesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303B600BEEFDE03047EC3C1C /* Pods_MarvelHeroes_MarvelHeroesUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +106,13 @@
 		D754C0D52620A761005FB0BD /* AllHeroesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHeroesRepository.swift; sourceTree = "<group>"; };
 		D754C0DF2620A7BE005FB0BD /* FetchHeroesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchHeroesUseCase.swift; sourceTree = "<group>"; };
 		D754C0E62620A9E8005FB0BD /* HeroListAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroListAssembler.swift; sourceTree = "<group>"; };
+		D754C0FC2620B437005FB0BD /* HeroDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailPresenter.swift; sourceTree = "<group>"; };
+		D754C1032620C05E005FB0BD /* InMemoryHeroDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryHeroDetailRepository.swift; sourceTree = "<group>"; };
+		D754C10E2620C0DB005FB0BD /* HeroDetailAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailAssembler.swift; sourceTree = "<group>"; };
+		D754C1152620C1D6005FB0BD /* HeroDetailOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailOpener.swift; sourceTree = "<group>"; };
+		D754C11C2620C230005FB0BD /* WireframeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeProtocols.swift; sourceTree = "<group>"; };
+		D754C1272620C309005FB0BD /* RootWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
+		D754C1322620C526005FB0BD /* HeroListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroListRouter.swift; sourceTree = "<group>"; };
 		DFB9426FB6AA4234A29908F0 /* Pods-MarvelHeroes-MarvelHeroesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroes-MarvelHeroesUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelHeroes-MarvelHeroesUITests/Pods-MarvelHeroes-MarvelHeroesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,14 +202,13 @@
 		D754BFE72620755A005FB0BD /* MarvelHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				D754C1262620C2EE005FB0BD /* App */,
 				D754C0B42620896D005FB0BD /* UseCases */,
 				D754C07426207DD3005FB0BD /* APIs */,
 				D754C05826207780005FB0BD /* Components */,
 				D754C04F262076A6005FB0BD /* Protocols */,
 				D754C028262075FE005FB0BD /* Extensions */,
 				D754C01B2620756D005FB0BD /* Sections */,
-				D754BFE82620755A005FB0BD /* AppDelegate.swift */,
-				D754BFEA2620755A005FB0BD /* SceneDelegate.swift */,
 				D754BFF12620755D005FB0BD /* Assets.xcassets */,
 				D754BFF32620755D005FB0BD /* LaunchScreen.storyboard */,
 				D754BFF62620755D005FB0BD /* Info.plist */,
@@ -233,6 +246,9 @@
 		D754C01C26207575005FB0BD /* HeroDetail */ = {
 			isa = PBXGroup;
 			children = (
+				D754C1142620C1C6005FB0BD /* Openers */,
+				D754C10D2620C0AC005FB0BD /* Assemblers */,
+				D754C1022620C042005FB0BD /* Repositories */,
 				D754C01D26207588005FB0BD /* View */,
 			);
 			path = HeroDetail;
@@ -243,6 +259,7 @@
 			children = (
 				D754C01E262075A3005FB0BD /* HeroDetailViewController.storyboard */,
 				D754C023262075CE005FB0BD /* HeroDetailViewController.swift */,
+				D754C0FC2620B437005FB0BD /* HeroDetailPresenter.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				D754C050262076B9005FB0BD /* ViewProtocols.swift */,
+				D754C11C2620C230005FB0BD /* WireframeProtocols.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -309,6 +327,7 @@
 		D754C0B52620A0AF005FB0BD /* HeroList */ = {
 			isa = PBXGroup;
 			children = (
+				D754C1312620C50C005FB0BD /* Routers */,
 				D754C0E52620A9D6005FB0BD /* Assemblers */,
 				D754C0D42620A739005FB0BD /* Repositories */,
 				D754C0B62620A0BA005FB0BD /* View */,
@@ -341,6 +360,48 @@
 				D754C0E62620A9E8005FB0BD /* HeroListAssembler.swift */,
 			);
 			path = Assemblers;
+			sourceTree = "<group>";
+		};
+		D754C1022620C042005FB0BD /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				D754C1032620C05E005FB0BD /* InMemoryHeroDetailRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		D754C10D2620C0AC005FB0BD /* Assemblers */ = {
+			isa = PBXGroup;
+			children = (
+				D754C10E2620C0DB005FB0BD /* HeroDetailAssembler.swift */,
+			);
+			path = Assemblers;
+			sourceTree = "<group>";
+		};
+		D754C1142620C1C6005FB0BD /* Openers */ = {
+			isa = PBXGroup;
+			children = (
+				D754C1152620C1D6005FB0BD /* HeroDetailOpener.swift */,
+			);
+			path = Openers;
+			sourceTree = "<group>";
+		};
+		D754C1262620C2EE005FB0BD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D754BFE82620755A005FB0BD /* AppDelegate.swift */,
+				D754BFEA2620755A005FB0BD /* SceneDelegate.swift */,
+				D754C1272620C309005FB0BD /* RootWireframe.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D754C1312620C50C005FB0BD /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				D754C1322620C526005FB0BD /* HeroListRouter.swift */,
+			);
+			path = Routers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -613,18 +674,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D754C1282620C309005FB0BD /* RootWireframe.swift in Sources */,
 				D754C0E72620A9E8005FB0BD /* HeroListAssembler.swift in Sources */,
 				D754C0C52620A129005FB0BD /* HeroListPresenter.swift in Sources */,
 				D754C0E02620A7BE005FB0BD /* FetchHeroesUseCase.swift in Sources */,
 				D754C098262080E7005FB0BD /* Bundle.swift in Sources */,
 				D754C05B26207823005FB0BD /* ApiRouter.swift in Sources */,
+				D754C1332620C526005FB0BD /* HeroListRouter.swift in Sources */,
 				D754C0CF2620A32A005FB0BD /* HeroCollectionViewCell.swift in Sources */,
+				D754C1042620C05E005FB0BD /* InMemoryHeroDetailRepository.swift in Sources */,
+				D754C1162620C1D6005FB0BD /* HeroDetailOpener.swift in Sources */,
 				D754C024262075CE005FB0BD /* HeroDetailViewController.swift in Sources */,
 				D754C051262076B9005FB0BD /* ViewProtocols.swift in Sources */,
+				D754C10F2620C0DB005FB0BD /* HeroDetailAssembler.swift in Sources */,
 				D754BFE92620755A005FB0BD /* AppDelegate.swift in Sources */,
 				D754C0BE2620A0DF005FB0BD /* HeroListViewController.swift in Sources */,
 				D754C0D62620A761005FB0BD /* AllHeroesRepository.swift in Sources */,
 				D754C07E26207F8B005FB0BD /* CryptoString.swift in Sources */,
+				D754C11D2620C230005FB0BD /* WireframeProtocols.swift in Sources */,
+				D754C0FD2620B437005FB0BD /* HeroDetailPresenter.swift in Sources */,
 				D754C07626207DE4005FB0BD /* MarvelAPI.swift in Sources */,
 				D754BFEB2620755A005FB0BD /* SceneDelegate.swift in Sources */,
 			);

@@ -7,23 +7,29 @@
 
 import UIKit
 
-class HeroDetailViewController: UIViewController, StoryboardAware {
+struct HeroDetailViewModel {
+    let imageUrl: URL?
+    let name: String
+}
 
+protocol HeroDetailPresenting: class {
+    var view: HeroDetailView? {get set}
+}
+
+class HeroDetailViewController: UIViewController, StoryboardAware {
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    var presenter: HeroDetailPresenting?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        presenter?.view = self
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension HeroDetailViewController: HeroDetailView {
+    func configure(with viewModel: HeroDetailViewModel) {
+        titleLabel.text = viewModel.name
     }
-    */
-
 }

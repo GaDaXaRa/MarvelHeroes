@@ -9,20 +9,25 @@ import Foundation
 import UIKit
 
 protocol HeroListAssembler {
-    func resolve() -> UIViewController
-    func resolve() -> HeroListPresenting
+    func resolve(wireframe: HeroListWireframe) -> UIViewController
+    func resolve(wireframe: HeroListWireframe) -> HeroListPresenting
+    func resolve(wireframe: HeroListWireframe) -> HeroListRouting
     func resolve() -> HeroListRepository
 }
 
 extension HeroListAssembler {
-    func resolve() -> UIViewController {
+    func resolve(wireframe: HeroListWireframe) -> UIViewController {
         let vc = HeroListViewController.create()
-        vc.presenter = resolve()
+        vc.presenter = resolve(wireframe: wireframe)
         return vc
     }
     
-    func resolve() -> HeroListPresenting {
-        HeroListPresenter(repository: resolve())
+    func resolve(wireframe: HeroListWireframe) -> HeroListPresenting {
+        HeroListPresenter(repository: resolve(), router: resolve(wireframe: wireframe))
+    }
+    
+    func resolve(wireframe: HeroListWireframe) -> HeroListRouting {
+        HeroListRouter(wireframe: wireframe)
     }
     
     func resolve() -> HeroListRepository {

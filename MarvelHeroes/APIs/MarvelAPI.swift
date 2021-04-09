@@ -8,7 +8,7 @@
 import Foundation
 
 enum MarvelAPI: ApiCall {
-    case heroList, heroDetail(String)
+    case heroList, heroDetail(Int)
     
     var baseUrl: String {"http://gateway.marvel.com/v1/public"}
     var verb: ApiVerb {.GET}
@@ -31,6 +31,10 @@ enum MarvelAPI: ApiCall {
 
 struct MarvelResponseContainer: Codable {
     let data: MarvelResultsContainer
+}
+
+extension MarvelResponseContainer {
+    var heroes: [MarvelHeroInList] {data.results}
 }
 
 struct MarvelResultsContainer: Codable {

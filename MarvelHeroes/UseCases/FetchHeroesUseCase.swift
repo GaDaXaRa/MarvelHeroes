@@ -22,7 +22,7 @@ class FetchHeroes {
 extension FetchHeroes: FetchHeroesUseCase {
     func fetch(_ completion: @escaping (Result<[MarvelHeroInList], Error>) -> ()) {
         apiRouter.request(apiCall: MarvelAPI.heroList) { (result: Result<MarvelResponseContainer, Error>) in
-            completion(result.map({$0.data.results}))
+            completion(result.map({$0.heroes}))
         }
     }
 }

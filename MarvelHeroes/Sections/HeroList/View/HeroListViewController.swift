@@ -11,6 +11,7 @@ protocol HeroListPresenting: class {
     var view: HeroListView? {get set}
     var numItems: Int {get}
     func draw(cell: HeroCollectionViewCell, at indexPath: IndexPath)
+    func didSelectItem(at indexPath: IndexPath)
 }
 
 class HeroListViewController: UIViewController, StoryboardAware {
@@ -39,5 +40,9 @@ extension HeroListViewController: UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "heroCell", for: indexPath) as! HeroCollectionViewCell
         presenter?.draw(cell: cell, at: indexPath)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter?.didSelectItem(at: indexPath)
     }
 }
