@@ -31,5 +31,6 @@ class HeroDetailViewController: UIViewController, StoryboardAware {
 extension HeroDetailViewController: HeroDetailView {
     func configure(with viewModel: HeroDetailViewModel) {
         titleLabel.text = viewModel.name
+        imageView.with(url: viewModel.imageUrl)
     }
 }

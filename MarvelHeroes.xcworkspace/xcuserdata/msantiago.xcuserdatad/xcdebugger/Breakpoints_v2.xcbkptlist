@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "60CB94CF-B0F0-4E40-9616-822E095312B3"
-            shouldBeEnabled = "Yes"
+            uuid = "7A9A7065-21AA-43F2-A85A-6DAF329F6724"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MarvelHeroes/Components/Communications/ApiRouter.swift"
+            filePath = "MarvelHeroes/Sections/HeroDetail/View/HeroDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "request(apiCall:_:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "configure(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

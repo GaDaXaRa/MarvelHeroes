@@ -20,6 +20,6 @@ class RootWireframe: RootNavigationWireframe {
     var rootNavigation: UINavigationController?
 }
 
-extension RootWireframe: Pushable {}
+extension RootWireframe: Pushable, Presentable {}
 
 extension RootWireframe: HeroDetailOpener, HeroListWireframe {}

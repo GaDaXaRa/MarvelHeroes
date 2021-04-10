@@ -19,6 +19,7 @@ class HeroListRouter {
 
 extension HeroListRouter: HeroListRouting {
     func didSelect(item: MarvelHeroInList) {
-        wireframe?.openDetail(for: item)
+//        wireframe?.openDetail(for: item)
+        wireframe?.presentDetail(byHeroId: item.id)
     }
 }

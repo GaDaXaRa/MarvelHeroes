@@ -44,4 +44,28 @@ struct MarvelResultsContainer: Codable {
 struct MarvelHeroInList: Codable {
     let id: Int
     let name: String
+    let description: String?
+    let thumbnail: MarvelImage?
+}
+
+struct MarvelImage: Codable {
+    let path: String
+    let `extension`: String
+}
+
+enum ImageSize: String {
+    case small, medium, xlarge
+}
+
+enum ImageOrientation: String {
+    case portrait, standard, landscape
+}
+
+extension MarvelImage {
+    func imageUrl(size: ImageSize = .medium, orientation: ImageOrientation = .standard) -> URL? {
+        var url = URL(string: path)
+        url?.appendPathComponent("\(orientation)_\(size)")
+        url?.appendPathExtension(`extension`)
+        return url
+    }
 }

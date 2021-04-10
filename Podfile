@@ -8,6 +8,7 @@ target 'MarvelHeroes' do
   # Pods for MarvelHeroes
   
   pod 'Alamofire'
+  pod 'Kingfisher'
 
   target 'MarvelHeroesTests' do
     inherit! :search_paths

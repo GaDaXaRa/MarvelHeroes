@@ -24,7 +24,7 @@ class MarvelAPITests: XCTestCase {
             expectation.fulfill()
         }
         
-        wait(for: [expectation], timeout: 2)
+        wait(for: [expectation], timeout: 20)
     }
 
 }

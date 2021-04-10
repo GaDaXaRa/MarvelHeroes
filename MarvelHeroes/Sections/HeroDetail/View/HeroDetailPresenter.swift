@@ -49,6 +49,6 @@ private extension HeroDetailPresenter {
 
 extension MarvelHeroInList {
     var toDetailModel: HeroDetailViewModel {
-        .init(imageUrl: nil, name: name)
+        .init(imageUrl: thumbnail?.imageUrl(size: .xlarge, orientation: .landscape), name: name)
     }
 }

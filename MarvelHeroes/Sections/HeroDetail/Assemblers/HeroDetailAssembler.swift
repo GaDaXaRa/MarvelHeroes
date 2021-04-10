@@ -9,25 +9,43 @@ import Foundation
 import UIKit
 
 protocol HeroDetailAssembler {
-    func resolve(hero: MarvelHeroInList) -> UIViewController
-    func resolve(hero: MarvelHeroInList) -> HeroDetailPresenting
-    func resolve(hero: MarvelHeroInList) -> HeroDetailRepository
+    func resolve() -> UIViewController
+    func resolve() -> HeroDetailPresenting
+    func resolve() -> HeroDetailRepository
 }
 
 extension HeroDetailAssembler {
-    func resolve(hero: MarvelHeroInList) -> UIViewController {
+    func resolve() -> UIViewController {
         let vc = HeroDetailViewController.create()
-        vc.presenter = resolve(hero: hero)
+        vc.presenter = resolve()
         return vc
     }
     
-    func resolve(hero: MarvelHeroInList) -> HeroDetailPresenting {
-        HeroDetailPresenter(repository: resolve(hero: hero))
+    func resolve() -> HeroDetailPresenting {
+        HeroDetailPresenter(repository: resolve())
+    }
+}
+
+class HeroDetailByModel: HeroDetailAssembler {
+    private let hero: MarvelHeroInList
+    
+    init(hero: MarvelHeroInList) {
+        self.hero = hero
     }
     
-    func resolve(hero: MarvelHeroInList) -> HeroDetailRepository {
+    func resolve() -> HeroDetailRepository {
         InMemoryHeroDetailRepository(hero: hero)
     }
 }
 
-class HeroDetail: HeroDetailAssembler {}
+class HeroDetailById: HeroDetailAssembler {
+    private let heroId: Int
+    
+    init(heroId: Int) {
+        self.heroId = heroId
+    }
+    
+    func resolve() -> HeroDetailRepository {
+        ByIdHeroDetailRepository(heroId: heroId)
+    }
+}

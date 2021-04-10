@@ -20,16 +20,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UfQ-eh-dfw">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="565"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="480"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="o9k-lK-63s">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="565"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="480"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0pb-fx-aRt">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="282.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="240" id="O8w-eT-331"/>
+                                                        </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gz3-97-arL">
-                                                        <rect key="frame" x="0.0" y="282.5" width="414" height="282.5"/>
+                                                        <rect key="frame" x="0.0" y="240" width="414" height="240"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>

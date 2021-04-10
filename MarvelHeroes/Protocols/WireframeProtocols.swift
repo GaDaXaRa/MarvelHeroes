@@ -23,3 +23,15 @@ extension Pushable where Self: RootNavigationWireframe {
         }
     }
 }
+
+protocol Presentable {
+    func present(viewController: @escaping @autoclosure () -> (UIViewController))
+}
+
+extension Presentable where Self: RootNavigationWireframe {
+    func present(viewController: @escaping @autoclosure () -> (UIViewController)) {
+        DispatchQueue.main.async {
+            rootNavigation?.present(viewController(), animated: true)
+        }
+    }
+}
