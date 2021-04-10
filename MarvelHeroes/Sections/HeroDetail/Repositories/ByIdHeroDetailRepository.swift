@@ -18,8 +18,10 @@ class ByIdHeroDetailRepository {
 }
 
 extension ByIdHeroDetailRepository: HeroDetailRepository {
-    func fetch(_ completion: @escaping (Result<MarvelHeroInList, Error>) -> ()) {
-        fetchHeroes.fetch(by: heroId, completion)
+    func fetch(_ completion: @escaping (Result<HeroDetailModel, Error>) -> ()) {
+        fetchHeroes.fetch(by: heroId) { result in
+            completion(result.map({$0 as HeroDetailModel}))
+        }
     }
 }
  

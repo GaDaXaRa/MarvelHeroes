@@ -7,12 +7,16 @@
 
 import Foundation
 
+protocol HeroDetailModel {
+    var detailModel: HeroDetailViewModel {get}
+}
+
 protocol HeroDetailView: class {
     func configure(with viewModel: HeroDetailViewModel)
 }
 
 protocol HeroDetailRepository {
-    func fetch(_ completion: @escaping (Result<MarvelHeroInList, Error>) -> ())
+    func fetch(_ completion: @escaping (Result<HeroDetailModel, Error>) -> ())
 }
 
 class HeroDetailPresenter: HeroDetailPresenting {
@@ -28,10 +32,10 @@ class HeroDetailPresenter: HeroDetailPresenting {
         }
     }
     
-    private var item: MarvelHeroInList? {
+    private var item: HeroDetailModel? {
         didSet {
             guard let item = item else {return}
-            view?.configure(with: item.toDetailModel)
+            view?.configure(with: item.detailModel)
         }
     }
 }
@@ -44,11 +48,5 @@ private extension HeroDetailPresenter {
             case .failure(_): break
             }
         }
-    }
-}
-
-extension MarvelHeroInList {
-    var toDetailModel: HeroDetailViewModel {
-        .init(imageUrl: thumbnail?.imageUrl(size: .xlarge, orientation: .landscape), name: name)
     }
 }

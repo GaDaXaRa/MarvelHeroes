@@ -16,7 +16,7 @@ class InMemoryHeroDetailRepository {
 }
 
 extension InMemoryHeroDetailRepository: HeroDetailRepository {
-    func fetch(_ completion: @escaping (Result<MarvelHeroInList, Error>) -> ()) {
-        completion(.success(hero))
+    func fetch(_ completion: @escaping (Result<HeroDetailModel, Error>) -> ()) {
+        completion(.success(hero as HeroDetailModel))
     }
 }

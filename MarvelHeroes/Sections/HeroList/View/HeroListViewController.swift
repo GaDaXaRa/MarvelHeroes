@@ -10,7 +10,7 @@ import UIKit
 protocol HeroListPresenting: class {
     var view: HeroListView? {get set}
     var numItems: Int {get}
-    func draw(cell: HeroCollectionViewCell, at indexPath: IndexPath)
+    func cellViewModel(at indexPath: IndexPath) -> HeroCellViewModel?
     func didSelectItem(at indexPath: IndexPath)
 }
 
@@ -38,7 +38,9 @@ extension HeroListViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "heroCell", for: indexPath) as! HeroCollectionViewCell
-        presenter?.draw(cell: cell, at: indexPath)
+        if let viewModel = presenter?.cellViewModel(at: indexPath) {
+            cell.configure(with: viewModel)
+        }
         return cell
     }
     

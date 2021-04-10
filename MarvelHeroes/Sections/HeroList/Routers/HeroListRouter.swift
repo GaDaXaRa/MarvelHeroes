@@ -18,8 +18,8 @@ class HeroListRouter {
 }
 
 extension HeroListRouter: HeroListRouting {
-    func didSelect(item: MarvelHeroInList) {
-//        wireframe?.openDetail(for: item)
-        wireframe?.presentDetail(byHeroId: item.id)
+    func didSelect(item: HeroInListModel) {
+        guard let model = item as? MarvelHeroInList else {return}
+        wireframe?.openDetail(for: model)
     }
 }

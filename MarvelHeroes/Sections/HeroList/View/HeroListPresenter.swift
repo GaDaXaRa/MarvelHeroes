@@ -7,16 +7,20 @@
 
 import Foundation
 
+protocol HeroInListModel {
+    var cellModel: HeroCellViewModel {get}
+}
+
 protocol HeroListView: class {
     func reload()
 }
 
 protocol HeroListRepository {
-    func fetchItems(_ completion: @escaping (Result<[MarvelHeroInList], Error>) -> ())
+    func fetchItems(_ completion: @escaping (Result<[HeroInListModel], Error>) -> ())
 }
 
 protocol HeroListRouting {
-    func didSelect(item: MarvelHeroInList)
+    func didSelect(item: HeroInListModel)
 }
 
 class HeroListPresenter {
@@ -34,7 +38,7 @@ class HeroListPresenter {
         }
     }
     
-    var items = [MarvelHeroInList]() {
+    var items = [HeroInListModel]() {
         didSet {
             view?.reload()
         }
@@ -57,17 +61,11 @@ extension HeroListPresenter: HeroListPresenting {
         items.count
     }
     
-    func draw(cell: HeroCollectionViewCell, at indexPath: IndexPath) {
-        cell.configure(with: items[indexPath.row].toCellModel)
+    func cellViewModel(at indexPath: IndexPath) -> HeroCellViewModel? {
+        items[indexPath.row].cellModel
     }
     
     func didSelectItem(at indexPath: IndexPath) {
         router?.didSelect(item: items[indexPath.row])
-    }
-}
-
-extension MarvelHeroInList {
-    var toCellModel: HeroCellViewModel {
-        .init(name: name)
     }
 }

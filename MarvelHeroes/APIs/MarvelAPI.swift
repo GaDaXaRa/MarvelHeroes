@@ -48,6 +48,16 @@ struct MarvelHeroInList: Codable {
     let thumbnail: MarvelImage?
 }
 
+extension MarvelHeroInList: HeroInListModel {
+    var cellModel: HeroCellViewModel {.init(name: name)}
+}
+
+extension MarvelHeroInList: HeroDetailModel {
+    var detailModel: HeroDetailViewModel {
+        .init(imageUrl: thumbnail?.imageUrl(size: .xlarge, orientation: .landscape), name: name)
+    }
+}
+
 struct MarvelImage: Codable {
     let path: String
     let `extension`: String
