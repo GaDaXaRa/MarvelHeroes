@@ -8,7 +8,7 @@
 import Foundation
 
 enum MarvelAPI: ApiCall {
-    case heroList, heroDetail(Int)
+    case heroList(page: Int), heroDetail(id: Int)
     
     var baseUrl: String {"http://gateway.marvel.com/v1/public"}
     var verb: ApiVerb {.GET}
@@ -20,12 +20,23 @@ enum MarvelAPI: ApiCall {
         }
     }
     
+    private var limit: Int {
+        50
+    }
+    
     var params: [String : Any]? {
         let ts = Int(Date().timeIntervalSince1970)
         let privateKey = Bundle.main.marvelPrivateKey
         let publicKey = Bundle.main.marvelPublicKey
         let hash = "\(ts)\(privateKey)\(publicKey)".md5Hex
-        return ["ts": ts, "apikey": publicKey, "hash": hash]
+        return ["ts": ts, "apikey": publicKey, "hash": hash, "limit": limit, "offset": offset]
+    }
+    
+    private var offset: Int {
+        switch self {
+        case .heroList(let page): return page * limit
+        default: return 0
+        }
     }
 }
 

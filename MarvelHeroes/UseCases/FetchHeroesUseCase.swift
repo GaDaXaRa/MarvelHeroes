@@ -9,6 +9,7 @@ import Foundation
 
 protocol FetchHeroesUseCase {
     func fetch(_ completion: @escaping (Result<[MarvelHeroInList], Error>) -> ())
+    func fetch(page: Int, _ completion: @escaping (Result<[MarvelHeroInList], Error>) -> ())
     func fetch(by id: Int, _ completion: @escaping (Result<MarvelHeroInList, Error>) -> ())
 }
 
@@ -21,14 +22,18 @@ class FetchHeroes {
 }
 
 extension FetchHeroes: FetchHeroesUseCase {
-    func fetch(_ completion: @escaping (Result<[MarvelHeroInList], Error>) -> ()) {
-        apiRouter.request(apiCall: MarvelAPI.heroList) { (result: Result<MarvelResponseContainer, Error>) in
+    func fetch(page: Int, _ completion: @escaping (Result<[MarvelHeroInList], Error>) -> ()) {
+        apiRouter.request(apiCall: MarvelAPI.heroList(page: page)) { (result: Result<MarvelResponseContainer, Error>) in
             completion(result.map({$0.heroes}))
         }
     }
     
+    func fetch(_ completion: @escaping (Result<[MarvelHeroInList], Error>) -> ()) {
+        fetch(page: 0, completion)
+    }
+    
     func fetch(by id: Int, _ completion: @escaping (Result<MarvelHeroInList, Error>) -> ()) {
-        apiRouter.request(apiCall: MarvelAPI.heroDetail(id)) { (result: Result<MarvelResponseContainer, Error>) in
+        apiRouter.request(apiCall: MarvelAPI.heroDetail(id: id)) { (result: Result<MarvelResponseContainer, Error>) in
             completion(result.map({$0.heroes.first!}))
         }
     }
