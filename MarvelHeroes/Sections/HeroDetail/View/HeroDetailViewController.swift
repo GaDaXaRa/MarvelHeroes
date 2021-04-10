@@ -16,7 +16,7 @@ protocol HeroDetailPresenting: class {
     var view: HeroDetailView? {get set}
 }
 
-class HeroDetailViewController: UIViewController, StoryboardAware {
+class HeroDetailViewController: UIViewController, Creatable {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     

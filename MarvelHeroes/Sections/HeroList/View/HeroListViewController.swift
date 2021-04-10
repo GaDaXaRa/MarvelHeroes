@@ -14,7 +14,7 @@ protocol HeroListPresenting: class {
     func didSelectItem(at indexPath: IndexPath)
 }
 
-class HeroListViewController: UIViewController, StoryboardAware {
+class HeroListViewController: UIViewController, Creatable {
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -27,7 +27,9 @@ class HeroListViewController: UIViewController, StoryboardAware {
 
 extension HeroListViewController: HeroListView {
     func reload() {
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 }
 

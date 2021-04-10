@@ -17,7 +17,7 @@
 		D754C00B2620755E005FB0BD /* MarvelHeroesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C00A2620755E005FB0BD /* MarvelHeroesUITests.swift */; };
 		D754C01F262075A3005FB0BD /* HeroDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D754C01E262075A3005FB0BD /* HeroDetailViewController.storyboard */; };
 		D754C024262075CE005FB0BD /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C023262075CE005FB0BD /* HeroDetailViewController.swift */; };
-		D754C051262076B9005FB0BD /* ViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C050262076B9005FB0BD /* ViewProtocols.swift */; };
+		D754C051262076B9005FB0BD /* Creatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C050262076B9005FB0BD /* Creatable.swift */; };
 		D754C05B26207823005FB0BD /* ApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C05A26207823005FB0BD /* ApiRouter.swift */; };
 		D754C063262078E6005FB0BD /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D754C062262078E6005FB0BD /* Podfile */; };
 		D754C07626207DE4005FB0BD /* MarvelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C07526207DE4005FB0BD /* MarvelAPI.swift */; };
@@ -91,7 +91,7 @@
 		D754C00C2620755E005FB0BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D754C01E262075A3005FB0BD /* HeroDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HeroDetailViewController.storyboard; sourceTree = "<group>"; };
 		D754C023262075CE005FB0BD /* HeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
-		D754C050262076B9005FB0BD /* ViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocols.swift; sourceTree = "<group>"; };
+		D754C050262076B9005FB0BD /* Creatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creatable.swift; sourceTree = "<group>"; };
 		D754C05A26207823005FB0BD /* ApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRouter.swift; sourceTree = "<group>"; };
 		D754C062262078E6005FB0BD /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D754C07526207DE4005FB0BD /* MarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPI.swift; sourceTree = "<group>"; };
@@ -281,7 +281,7 @@
 		D754C04F262076A6005FB0BD /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				D754C050262076B9005FB0BD /* ViewProtocols.swift */,
+				D754C050262076B9005FB0BD /* Creatable.swift */,
 				D754C11C2620C230005FB0BD /* WireframeProtocols.swift */,
 			);
 			path = Protocols;
@@ -691,7 +691,7 @@
 				D754C1042620C05E005FB0BD /* InMemoryHeroDetailRepository.swift in Sources */,
 				D754C1162620C1D6005FB0BD /* HeroDetailOpener.swift in Sources */,
 				D754C024262075CE005FB0BD /* HeroDetailViewController.swift in Sources */,
-				D754C051262076B9005FB0BD /* ViewProtocols.swift in Sources */,
+				D754C051262076B9005FB0BD /* Creatable.swift in Sources */,
 				D754C10F2620C0DB005FB0BD /* HeroDetailAssembler.swift in Sources */,
 				D754BFE92620755A005FB0BD /* AppDelegate.swift in Sources */,
 				D754C0BE2620A0DF005FB0BD /* HeroListViewController.swift in Sources */,
