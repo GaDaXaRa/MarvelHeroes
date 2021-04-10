@@ -10,6 +10,7 @@ import UIKit
 struct HeroDetailViewModel {
     let imageUrl: URL?
     let name: String
+    let description: String?
 }
 
 protocol HeroDetailPresenting: class {
@@ -19,6 +20,7 @@ protocol HeroDetailPresenting: class {
 class HeroDetailViewController: UIViewController, Creatable {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var presenter: HeroDetailPresenting?
     
@@ -30,7 +32,11 @@ class HeroDetailViewController: UIViewController, Creatable {
 
 extension HeroDetailViewController: HeroDetailView {
     func configure(with viewModel: HeroDetailViewModel) {
-        titleLabel.text = viewModel.name
-        imageView.with(url: viewModel.imageUrl)
+        DispatchQueue.main.async {
+            self.title = viewModel.name
+            self.titleLabel.text = viewModel.name
+            self.descriptionLabel.text = viewModel.description
+            self.imageView.with(url: viewModel.imageUrl)
+        }
     }
 }

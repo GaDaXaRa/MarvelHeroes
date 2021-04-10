@@ -54,7 +54,7 @@ extension MarvelHeroInList: HeroInListModel {
 
 extension MarvelHeroInList: HeroDetailModel {
     var detailModel: HeroDetailViewModel {
-        .init(imageUrl: thumbnail?.imageUrl(size: .amazing, orientation: .landscape), name: name)
+        .init(imageUrl: thumbnail?.imageUrl(size: .amazing, orientation: .landscape), name: name, description: description)
     }
 }
 
