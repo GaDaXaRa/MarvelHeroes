@@ -49,12 +49,12 @@ struct MarvelHeroInList: Codable {
 }
 
 extension MarvelHeroInList: HeroInListModel {
-    var cellModel: HeroCellViewModel {.init(name: name)}
+    var cellModel: HeroCellViewModel {.init(name: name, imageUrl: thumbnail?.imageUrl(size: .xlarge, orientation: .portrait))}
 }
 
 extension MarvelHeroInList: HeroDetailModel {
     var detailModel: HeroDetailViewModel {
-        .init(imageUrl: thumbnail?.imageUrl(size: .xlarge, orientation: .landscape), name: name)
+        .init(imageUrl: thumbnail?.imageUrl(size: .amazing, orientation: .landscape), name: name)
     }
 }
 
@@ -64,7 +64,7 @@ struct MarvelImage: Codable {
 }
 
 enum ImageSize: String {
-    case small, medium, xlarge
+    case small, medium, xlarge, amazing
 }
 
 enum ImageOrientation: String {
