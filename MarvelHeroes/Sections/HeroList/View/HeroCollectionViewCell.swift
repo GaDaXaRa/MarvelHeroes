@@ -25,4 +25,8 @@ class HeroCollectionViewCell: UICollectionViewCell {
         nameLabel.text = viewModel.name
         imageView.with(url: viewModel.imageUrl)
     }
+    
+    override func prepareForReuse() {
+        imageView.image = nil
+    }
 }

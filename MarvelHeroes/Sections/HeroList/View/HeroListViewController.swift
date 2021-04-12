@@ -12,6 +12,7 @@ protocol HeroListPresenting: class {
     var numItems: Int {get}
     func cellViewModel(at indexPath: IndexPath) -> HeroCellViewModel?
     func didSelectItem(at indexPath: IndexPath)
+    func didScrollToBottom()
 }
 
 class HeroListViewController: UIViewController, Creatable {
@@ -43,6 +44,12 @@ extension HeroListViewController: HeroListView {
 extension HeroListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         presenter?.numItems ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row >= collectionView.numberOfItems(inSection: 0) - 12 {
+            presenter?.didScrollToBottom()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

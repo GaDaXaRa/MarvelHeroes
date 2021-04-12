@@ -16,8 +16,8 @@ class AllHeroesRepository {
 }
 
 extension AllHeroesRepository: HeroListRepository {
-    func fetchItems(_ completion: @escaping (Result<[HeroInListModel], Error>) -> ()) {
-        fetchHeroes.fetch { result in
+    func fetchItems(offset: Int, _ completion: @escaping (Result<[HeroInListModel], Error>) -> ()) {
+        fetchHeroes.fetch(offset: offset) { result in
             completion(result.map({$0 as [HeroInListModel]}))
         }
     }

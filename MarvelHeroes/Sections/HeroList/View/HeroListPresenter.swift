@@ -16,7 +16,7 @@ protocol HeroListView: class {
 }
 
 protocol HeroListRepository {
-    func fetchItems(_ completion: @escaping (Result<[HeroInListModel], Error>) -> ())
+    func fetchItems(offset: Int, _ completion: @escaping (Result<[HeroInListModel], Error>) -> ())
 }
 
 protocol HeroListRouting {
@@ -43,15 +43,20 @@ class HeroListPresenter {
             view?.reload()
         }
     }
+    
+    private var loading = false
 }
 
 private extension HeroListPresenter {
     func fetchItems() {
-        repository?.fetchItems { [weak self] (result) in
+        guard !loading else {return}
+        loading = true
+        repository?.fetchItems(offset: items.count) { [weak self] (result) in
             switch result {
-            case .success(let items): self?.items = items
+            case .success(let items): self?.items.append(contentsOf: items)
             case.failure(_): break
             }
+            self?.loading = false
         }
     }
 }
@@ -67,5 +72,9 @@ extension HeroListPresenter: HeroListPresenting {
     
     func didSelectItem(at indexPath: IndexPath) {
         router?.didSelect(item: items[indexPath.row])
+    }
+    
+    func didScrollToBottom() {
+        fetchItems()
     }
 }
