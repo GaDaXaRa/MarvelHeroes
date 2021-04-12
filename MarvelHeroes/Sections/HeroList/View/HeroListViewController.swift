@@ -31,6 +31,8 @@ class HeroListViewController: UIViewController, Creatable {
         layout.minimumLineSpacing = 5
         return layout
     }()
+    
+    private var loading = false
 }
 
 extension HeroListViewController: HeroListView {
@@ -38,6 +40,10 @@ extension HeroListViewController: HeroListView {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
+    }
+    
+    func showLoading(_ loading: Bool) {
+        self.loading = loading
     }
 }
 
@@ -59,7 +65,7 @@ extension HeroListViewController: UICollectionViewDataSource, UICollectionViewDe
             fatalError("Unable to deque collection reusable cell")
             
         }
-        footer.showLoad()
+        loading ? footer.showLoad() : footer.hideLoad()
         return footer
         
     }

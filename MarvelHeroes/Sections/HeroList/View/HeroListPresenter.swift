@@ -13,6 +13,7 @@ protocol HeroInListModel {
 
 protocol HeroListView: class {
     func reload()
+    func showLoading(_ loading: Bool)
 }
 
 protocol HeroListRepository {
@@ -44,7 +45,11 @@ class HeroListPresenter {
         }
     }
     
-    private var loading = false
+    private var loading = false {
+        didSet {
+            view?.showLoading(loading)
+        }
+    }
 }
 
 private extension HeroListPresenter {

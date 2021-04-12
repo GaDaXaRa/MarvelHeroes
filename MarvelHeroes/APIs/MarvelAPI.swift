@@ -8,7 +8,7 @@
 import Foundation
 
 enum MarvelAPI: ApiCall {
-    case heroList(offset: Int), heroDetail(id: Int)
+    case heroList(offset: Int, limit: Int), heroDetail(id: Int)
     
     var baseUrl: String {"http://gateway.marvel.com/v1/public"}
     var verb: ApiVerb {.GET}
@@ -20,7 +20,7 @@ enum MarvelAPI: ApiCall {
         }
     }
     
-    private var limit: Int {
+    private var defaultLimit: Int {
         50
     }
     
@@ -34,8 +34,15 @@ enum MarvelAPI: ApiCall {
     
     private var offset: Int {
         switch self {
-        case .heroList(let offset): return offset
+        case .heroList(let offset, _): return offset
         default: return 0
+        }
+    }
+    
+    private var limit: Int {
+        switch self {
+        case .heroList(_,  let limit): return limit
+        default: return defaultLimit
         }
     }
 }
