@@ -23,6 +23,13 @@ class HeroListViewController: UIViewController, Creatable {
     }
     
     var presenter: HeroListPresenting?
+    
+    let flowLayout: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 5
+        return layout
+    }()
 }
 
 extension HeroListViewController: HeroListView {
@@ -48,5 +55,21 @@ extension HeroListViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter?.didSelectItem(at: indexPath)
+    }
+}
+
+extension HeroListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width
+        let aspectRatio: CGFloat = 75/50
+        let numberOfItemsPerRow: CGFloat = 3
+        let spacing: CGFloat = flowLayout.minimumInteritemSpacing
+        let availableWidth = width - spacing * (numberOfItemsPerRow + 3)
+        let itemDimension = floor(availableWidth / numberOfItemsPerRow)
+        return CGSize(width: itemDimension, height: itemDimension * aspectRatio)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        .init(top: 5, left: 5, bottom: 5, right: 5)
     }
 }

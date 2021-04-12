@@ -36,7 +36,7 @@ extension HeroDetailViewController: HeroDetailView {
             self.title = viewModel.name
             self.titleLabel.text = viewModel.name
             self.descriptionLabel.text = viewModel.description
-            self.imageView.with(url: viewModel.imageUrl)
+            self.imageView.with(url: viewModel.imageUrl, showLoader: true)
         }
     }
 }
