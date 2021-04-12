@@ -41,6 +41,7 @@
 		D754C1332620C526005FB0BD /* HeroListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C1322620C526005FB0BD /* HeroListRouter.swift */; };
 		D754C13D2620C925005FB0BD /* ByIdHeroDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C13C2620C925005FB0BD /* ByIdHeroDetailRepository.swift */; };
 		D754C14C262207F1005FB0BD /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C14B262207F1005FB0BD /* UIImageView.swift */; };
+		D7B5B14426247E8600D3B16F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D7B5B14326247E8600D3B16F /* README.md */; };
 		F7F2298908F846D80A0D0F37 /* Pods_MarvelHeroes_MarvelHeroesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303B600BEEFDE03047EC3C1C /* Pods_MarvelHeroes_MarvelHeroesUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 		D754C1322620C526005FB0BD /* HeroListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroListRouter.swift; sourceTree = "<group>"; };
 		D754C13C2620C925005FB0BD /* ByIdHeroDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByIdHeroDetailRepository.swift; sourceTree = "<group>"; };
 		D754C14B262207F1005FB0BD /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		D7B5B14326247E8600D3B16F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DFB9426FB6AA4234A29908F0 /* Pods-MarvelHeroes-MarvelHeroesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroes-MarvelHeroesUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelHeroes-MarvelHeroesUITests/Pods-MarvelHeroes-MarvelHeroesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 		D754BFDC2620755A005FB0BD = {
 			isa = PBXGroup;
 			children = (
+				D7B5B14326247E8600D3B16F /* README.md */,
 				D754C062262078E6005FB0BD /* Podfile */,
 				D754BFE72620755A005FB0BD /* MarvelHeroes */,
 				D754BFFE2620755D005FB0BD /* MarvelHeroesTests */,
@@ -541,6 +544,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7B5B14426247E8600D3B16F /* README.md in Resources */,
 				D754C063262078E6005FB0BD /* Podfile in Resources */,
 				D754BFF52620755D005FB0BD /* LaunchScreen.storyboard in Resources */,
 				D754BFF22620755D005FB0BD /* Assets.xcassets in Resources */,
