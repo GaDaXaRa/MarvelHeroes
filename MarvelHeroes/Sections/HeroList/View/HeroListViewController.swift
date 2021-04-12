@@ -46,12 +46,6 @@ extension HeroListViewController: UICollectionViewDataSource, UICollectionViewDe
         presenter?.numItems ?? 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row >= collectionView.numberOfItems(inSection: 0) - 12 {
-            presenter?.didScrollToBottom()
-        }
-    }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "heroCell", for: indexPath) as! HeroCollectionViewCell
         if let viewModel = presenter?.cellViewModel(at: indexPath) {
@@ -60,8 +54,24 @@ extension HeroListViewController: UICollectionViewDataSource, UICollectionViewDe
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "loadingFooter", for: indexPath) as? LoadingFooterCollectionReusableView else {
+            fatalError("Unable to deque collection reusable cell")
+            
+        }
+        footer.showLoad()
+        return footer
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter?.didSelectItem(at: indexPath)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (scrollView.contentSize.height - scrollView.contentOffset.y) / 2 <= scrollView.frame.height {
+            presenter?.didScrollToBottom()
+        }
     }
 }
 

@@ -17,13 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ubp-Q5-Rwg">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ubp-Q5-Rwg">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5DW-Zd-JZi">
                                     <size key="itemSize" width="167" height="178"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="50" height="50"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -37,7 +37,7 @@
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1GZ-0x-myZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="167" height="178"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="61S-Pw-BWo">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="61S-Pw-BWo">
                                                             <rect key="frame" x="0.0" y="0.0" width="167" height="178"/>
                                                         </imageView>
                                                         <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHZ-pp-fF9">
@@ -92,6 +92,22 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="loadingFooter" id="Ee7-Ie-KRJ" customClass="LoadingFooterCollectionReusableView" customModule="MarvelHeroes" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="178" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="tfv-0m-JHS">
+                                            <rect key="frame" x="197" y="15" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tfv-0m-JHS" firstAttribute="centerY" secondItem="Ee7-Ie-KRJ" secondAttribute="centerY" id="Fxi-y7-vFI"/>
+                                        <constraint firstItem="tfv-0m-JHS" firstAttribute="centerX" secondItem="Ee7-Ie-KRJ" secondAttribute="centerX" id="Xvu-6m-y5J"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="activityIndicator" destination="tfv-0m-JHS" id="NDl-hS-muF"/>
+                                    </connections>
+                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="Kuh-il-nfz" id="fj9-sO-y9J"/>
                                     <outlet property="delegate" destination="Kuh-il-nfz" id="nR7-SV-GAK"/>
