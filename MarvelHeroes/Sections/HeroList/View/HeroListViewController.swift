@@ -20,6 +20,7 @@ class HeroListViewController: UIViewController, Creatable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "HeroListTitle".localized
         presenter?.view = self
     }
     

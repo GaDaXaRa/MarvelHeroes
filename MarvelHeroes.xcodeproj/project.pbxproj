@@ -43,6 +43,8 @@
 		D754C14C262207F1005FB0BD /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D754C14B262207F1005FB0BD /* UIImageView.swift */; };
 		D7B5B13A26245F0500D3B16F /* LoadingFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B5B13926245F0500D3B16F /* LoadingFooterCollectionReusableView.swift */; };
 		D7B5B14426247E8600D3B16F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D7B5B14326247E8600D3B16F /* README.md */; };
+		D7B5B1942625955300D3B16F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D7B5B1962625955300D3B16F /* Localizable.strings */; };
+		D7B5B19D262595C500D3B16F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B5B19C262595C500D3B16F /* String.swift */; };
 		F7F2298908F846D80A0D0F37 /* Pods_MarvelHeroes_MarvelHeroesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303B600BEEFDE03047EC3C1C /* Pods_MarvelHeroes_MarvelHeroesUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +123,9 @@
 		D754C14B262207F1005FB0BD /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		D7B5B13926245F0500D3B16F /* LoadingFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterCollectionReusableView.swift; sourceTree = "<group>"; };
 		D7B5B14326247E8600D3B16F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D7B5B1952625955300D3B16F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D7B5B1972625956100D3B16F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D7B5B19C262595C500D3B16F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		DFB9426FB6AA4234A29908F0 /* Pods-MarvelHeroes-MarvelHeroesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroes-MarvelHeroesUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelHeroes-MarvelHeroesUITests/Pods-MarvelHeroes-MarvelHeroesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,6 +226,7 @@
 				D754BFF12620755D005FB0BD /* Assets.xcassets */,
 				D754BFF32620755D005FB0BD /* LaunchScreen.storyboard */,
 				D754BFF62620755D005FB0BD /* Info.plist */,
+				D7B5B1962625955300D3B16F /* Localizable.strings */,
 			);
 			path = MarvelHeroes;
 			sourceTree = "<group>";
@@ -279,6 +285,7 @@
 				D754C07D26207F8B005FB0BD /* CryptoString.swift */,
 				D754C097262080E7005FB0BD /* Bundle.swift */,
 				D754C14B262207F1005FB0BD /* UIImageView.swift */,
+				D7B5B19C262595C500D3B16F /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -528,6 +535,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = D754BFDC2620755A005FB0BD;
 			productRefGroup = D754BFE62620755A005FB0BD /* Products */;
@@ -550,6 +558,7 @@
 				D7B5B14426247E8600D3B16F /* README.md in Resources */,
 				D754C063262078E6005FB0BD /* Podfile in Resources */,
 				D754BFF52620755D005FB0BD /* LaunchScreen.storyboard in Resources */,
+				D7B5B1942625955300D3B16F /* Localizable.strings in Resources */,
 				D754BFF22620755D005FB0BD /* Assets.xcassets in Resources */,
 				D754C01F262075A3005FB0BD /* HeroDetailViewController.storyboard in Resources */,
 				D754C0B82620A0CF005FB0BD /* HeroListViewController.storyboard in Resources */,
@@ -704,6 +713,7 @@
 				D754BFE92620755A005FB0BD /* AppDelegate.swift in Sources */,
 				D754C0BE2620A0DF005FB0BD /* HeroListViewController.swift in Sources */,
 				D754C0D62620A761005FB0BD /* AllHeroesRepository.swift in Sources */,
+				D7B5B19D262595C500D3B16F /* String.swift in Sources */,
 				D754C07E26207F8B005FB0BD /* CryptoString.swift in Sources */,
 				D754C11D2620C230005FB0BD /* WireframeProtocols.swift in Sources */,
 				D754C0FD2620B437005FB0BD /* HeroDetailPresenter.swift in Sources */,
@@ -768,6 +778,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		D7B5B1962625955300D3B16F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D7B5B1952625955300D3B16F /* en */,
+				D7B5B1972625956100D3B16F /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -775,6 +794,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -836,6 +856,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
