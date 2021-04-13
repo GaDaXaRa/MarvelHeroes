@@ -35,3 +35,13 @@ extension Presentable where Self: RootNavigationWireframe {
         }
     }
 }
+
+protocol ErrorPresentable {
+    func show(error: Error)
+}
+
+extension ErrorPresentable where Self: Presentable {
+    func show(error: Error) {
+        present(viewController: UIAlertController(title: "DefaultErrorTitle".localized, message: error.localizedDescription, preferredStyle: .alert))
+    }
+}

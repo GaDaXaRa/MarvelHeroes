@@ -22,6 +22,7 @@ protocol HeroListRepository {
 
 protocol HeroListRouting {
     func didSelect(item: HeroInListModel)
+    func didFail(with error: Error)
 }
 
 class HeroListPresenter {
@@ -59,7 +60,7 @@ private extension HeroListPresenter {
         repository?.fetchItems(offset: items.count) { [weak self] (result) in
             switch result {
             case .success(let items): self?.items.append(contentsOf: items)
-            case.failure(_): break
+            case.failure(let error): self?.router?.didFail(with: error)
             }
             self?.loading = false
         }
